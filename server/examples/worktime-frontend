@@ -1,0 +1,31 @@
+server {
+    listen 80;
+    server_name _;  # change to your domain or IP
+
+    # Frontend (Vite build output)
+    root /var/www/worktime;
+    index index.html;
+
+    # SPA routing: refresh on /route should return index.html
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Backend API (adjust path if your backend does not use /api)
+    location /api/ {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Optional: cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff2?)$ {
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800, immutable";
+        try_files $uri =404;
+    }
+}

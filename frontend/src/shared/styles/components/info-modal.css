@@ -1,0 +1,6 @@
+/* InfoModal: remove row lines/borders and tighten spacing */
+.info-modal__table > :not(caption) > * > * {
+  border-bottom: 0 !important;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="session-minimal" pageWidth="547" pageHeight="2000" whenNoDataType="AllSectionsNoDetail" columnWidth="547" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="34f03273-6fc9-4437-a96b-0e5a100d3c8d">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Base" fontName="SansSerif" fontSize="9"/>
+	<style name="Muted" style="Base" forecolor="#6C757D"/>
+	<parameter name="SR_SEGMENT" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<field name="txtStartLabel" class="java.lang.String"/>
+	<field name="startLabel" class="java.lang.String"/>
+	<field name="txtEndLabel" class="java.lang.String"/>
+	<field name="endLabel" class="java.lang.String"/>
+	<field name="txtDurationLabel" class="java.lang.String"/>
+	<field name="durationLabel" class="java.lang.String"/>
+	<field name="txtSegmentsLabel" class="java.lang.String"/>
+	<field name="segmentsLabel" class="java.lang.String"/>
+	<field name="txtUnallocatedLabel" class="java.lang.String"/>
+	<field name="unallocatedLabel" class="java.lang.String"/>
+	<field name="segments" class="java.util.List"/>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="547" height="1" uuid="63d80193-ec7d-4403-a21d-dd5523290a64"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#6C757D"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Muted" x="0" y="2" width="34" height="12" uuid="5e33e1f0-04d3-48a6-a3ef-c8059e359e6c"/>
+				<textFieldExpression><![CDATA[$F{txtStartLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="36" y="2" width="140" height="12" uuid="a396ce88-d918-4325-b429-1164001c62db"/>
+				<textFieldExpression><![CDATA[$F{startLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="180" y="2" width="34" height="12" uuid="8dc699a0-5b13-4b53-a166-77e3f39fb38f"/>
+				<textFieldExpression><![CDATA[$F{txtEndLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="216" y="2" width="140" height="12" uuid="08db649c-99c6-4ead-8bf2-a67b9c803214"/>
+				<textFieldExpression><![CDATA[$F{endLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="361" y="2" width="70" height="12" uuid="4a71a1ca-93b1-4075-96b2-ceb09c0e924a"/>
+				<textFieldExpression><![CDATA[$F{txtDurationLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="433" y="2" width="105" height="12" uuid="4395a6e4-6729-4d80-8180-0bce9165faa7"/>
+				<textFieldExpression><![CDATA[$F{durationLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="0" y="14" width="70" height="12" uuid="dc5f6b59-82fa-4cfc-9db6-a6c78ca866ac"/>
+				<textFieldExpression><![CDATA[$F{txtSegmentsLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="72" y="14" width="105" height="12" uuid="bc7f3772-b2e2-47f0-9e54-71f98c91eda8"/>
+				<textFieldExpression><![CDATA[$F{segmentsLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="180" y="14" width="70" height="12" uuid="af9cf4dd-8d87-42c5-98f6-fbde9d287e93"/>
+				<textFieldExpression><![CDATA[$F{txtUnallocatedLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="251" y="14" width="112" height="12" uuid="78a88c03-646f-4ee4-8c7b-06e65ddcb3df"/>
+				<textFieldExpression><![CDATA[$F{unallocatedLabel}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25">
+			<printWhenExpression><![CDATA[$F{segments} != null && !$F{segments}.isEmpty()]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="547" height="25" uuid="dc7b7ff4-9ad9-4e13-8c17-4a4eb3409f9a"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(
+                        (java.util.Collection)$F{segments}
+                    )]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SR_SEGMENT}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

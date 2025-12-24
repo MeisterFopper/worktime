@@ -1,0 +1,41 @@
+logging:
+  level:
+    root: WARN
+    "[com.mrfop.worktime]": INFO
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://sql:3306/private_worktime?useUnicode=true&characterEncoding=utf8mb4&connectionCollation=utf8mb4_unicode_ci&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${MYSQL_WORKTIME_USER}
+    password: ${MYSQL_WORKTIME_PASSWORD}
+
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=600s
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          "[time_zone]": UTC
+
+  jackson:
+    time-zone: UTC
+
+springdoc:
+  writer-with-order-by-keys: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    tags-sorter: alpha
+    operations-sorter: alpha

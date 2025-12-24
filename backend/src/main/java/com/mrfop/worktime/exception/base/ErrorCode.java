@@ -1,0 +1,14 @@
+package com.mrfop.worktime.exception.base;
+
+public enum ErrorCode {
+    ALREADY_RUNNING,
+    CONFLICT,
+    INVALID_TIME_RANGE,
+    MISSING_TIME_VALUE,
+    NAME_ALREADY_EXISTS,
+    NO_ACTIVE,
+    NO_FIELDS_TO_UPDATE,
+    NOT_FOUND,
+    OPERATION_BLOCKED_BY_RUNNING,
+    VALIDATION_FAILED
+}

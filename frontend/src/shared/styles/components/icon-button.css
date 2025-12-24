@@ -1,0 +1,68 @@
+/* Base icon button sizing/spacing */
+.btn.btn-icon {
+  padding: 0.25rem 0.5rem;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.btn.btn-icon .bi {
+  font-size: 1rem;
+  vertical-align: -0.125em;
+}
+
+/* INFO */
+.btn.btn-icon--info {
+  color: #000;
+  background-color: var(--bs-info);
+  border: 1px solid var(--bs-info);
+}
+
+.btn.btn-icon--info:hover,
+.btn.btn-icon--info:focus {
+  color: #000;
+  background-color: var(--bs-info-bg-subtle);
+  border-color: var(--bs-info);
+}
+
+/* EDIT */
+.btn.btn-icon--edit {
+  color: #000;
+  background-color: var(--bs-warning);
+  border: 1px solid var(--bs-warning);
+}
+
+.btn.btn-icon--edit:hover,
+.btn.btn-icon--edit:focus {
+  color: #000;
+  background-color: var(--bs-warning-bg-subtle);
+  border-color: var(--bs-warning);
+}
+
+/* DELETE */
+.btn.btn-icon--delete {
+  color: #000;
+  background-color: var(--bs-danger);
+  border: 1px solid var(--bs-danger);
+}
+
+.btn.btn-icon--delete:hover,
+.btn.btn-icon--delete:focus {
+  color: #000;
+  background-color: var(--bs-danger-bg-subtle);
+  border-color: var(--bs-danger);
+}
+
+/* Disabled states */
+.btn.btn-icon:disabled,
+.btn.btn-icon.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Icon micro-adjustments */
+.btn.btn-icon .bi-info-circle { transform: translateY(-0.25px); }
+.btn.btn-icon .bi-pencil { transform: translateY(-0.5px); }
+.btn.btn-icon .bi-trash { transform: translateY(-0.25px); }

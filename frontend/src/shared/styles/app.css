@@ -1,0 +1,19 @@
+/* Component-level CSS */
+@import './components/icon-button.css';
+@import './components/info-modal.css';
+@import './components/report-table.css';
+
+/* Minimal app reset */
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}

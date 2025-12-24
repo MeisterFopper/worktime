@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="work-report-minimal" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="61774b5c-ad41-4c72-b7fd-52e78dc5d699">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Base" fontName="SansSerif" fontSize="11"/>
+	<style name="Title" style="Base" fontSize="16" isBold="true"/>
+	<style name="Muted" style="Base" forecolor="#6C757D"/>
+	<parameter name="SR_DAY" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="SR_SESSION" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="SR_SEGMENT" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<field name="titleLabel" class="java.lang.String"/>
+	<field name="txtPeriodLabel" class="java.lang.String"/>
+	<field name="periodLabel" class="java.lang.String"/>
+	<field name="txtGeneratedAtLabel" class="java.lang.String"/>
+	<field name="generatedAtLabel" class="java.lang.String"/>
+	<field name="txtZoneLabel" class="java.lang.String"/>
+	<field name="zoneLabel" class="java.lang.String"/>
+	<field name="days" class="java.util.List"/>
+	<title>
+		<band height="104">
+			<textField>
+				<reportElement style="Title" x="0" y="0" width="555" height="28" uuid="0bb24875-4de8-447a-94f0-aea2172ae121"/>
+				<textFieldExpression><![CDATA[$F{titleLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="0" y="34" width="90" height="18" uuid="603a89ba-30c4-4d52-9950-9b783e12a322"/>
+				<textFieldExpression><![CDATA[$F{txtPeriodLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="95" y="34" width="460" height="18" uuid="bbd1b8df-f377-4ffd-a73a-3e2e03c4f95d"/>
+				<textFieldExpression><![CDATA[$F{periodLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="0" y="56" width="90" height="18" uuid="b008ff9a-1e56-41bb-aabd-f2055aa76acd"/>
+				<textFieldExpression><![CDATA[$F{txtGeneratedAtLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="95" y="56" width="460" height="18" uuid="989f3513-cf66-48f6-9288-d65bf36a1e9c"/>
+				<textFieldExpression><![CDATA[$F{generatedAtLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="0" y="78" width="90" height="18" uuid="d00e88cd-9f75-4fb2-8e9d-cc0676d6ea6c"/>
+				<textFieldExpression><![CDATA[$F{txtZoneLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="95" y="78" width="460" height="18" uuid="5602a265-aaa5-4b7e-98aa-079a1dd4a7e0"/>
+				<textFieldExpression><![CDATA[$F{zoneLabel}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="25" uuid="17a8deef-839e-4586-b080-2bad4c677b3e"/>
+				<subreportParameter name="SR_SESSION">
+					<subreportParameterExpression><![CDATA[$P{SR_SESSION}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SR_SEGMENT">
+					<subreportParameterExpression><![CDATA[$P{SR_SEGMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(
+                        (java.util.Collection)$F{days}
+                    )]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SR_DAY}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

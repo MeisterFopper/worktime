@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="day-sessions-minimal" pageWidth="555" pageHeight="2000" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="11d11f42-7c02-44d1-a0df-388d4f09a042">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Base" fontName="SansSerif" fontSize="10"/>
+	<style name="Bold" style="Base" isBold="true"/>
+	<style name="Muted" style="Base" forecolor="#6C757D"/>
+	<parameter name="SR_SESSION" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="SR_SEGMENT" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<field name="txtDayLabel" class="java.lang.String"/>
+	<field name="dayLabel" class="java.lang.String"/>
+	<field name="txtTotalLabel" class="java.lang.String"/>
+	<field name="totalLabel" class="java.lang.String"/>
+	<field name="txtSegmentsLabel" class="java.lang.String"/>
+	<field name="segmentsLabel" class="java.lang.String"/>
+	<field name="txtUnallocatedLabel" class="java.lang.String"/>
+	<field name="unallocatedLabel" class="java.lang.String"/>
+	<field name="sessions" class="java.util.List"/>
+	<detail>
+		<band height="46" splitType="Prevent">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="555" height="46" uuid="40e7f821-fdab-45bd-ba5c-61c821bc082e"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement style="Muted" x="4" y="2" width="30" height="16" uuid="26217d5e-274a-4363-b7ae-6799799b2631"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{txtDayLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Bold" x="36" y="2" width="150" height="16" uuid="9a17ff61-379d-4af5-b065-4213a23ec4f1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dayLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="365" y="18" width="70" height="14" uuid="13c3761d-a4a0-4266-9429-5bd602b03103"/>
+				<textFieldExpression><![CDATA[$F{txtTotalLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="437" y="18" width="105" height="14" uuid="54744cbf-4cc8-414c-9a3d-b4e7112adb6a"/>
+				<textFieldExpression><![CDATA[$F{totalLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="4" y="18" width="70" height="14" uuid="7f237834-3196-442a-a1b8-c0bdb3f70b4e"/>
+				<textFieldExpression><![CDATA[$F{txtSegmentsLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="76" y="18" width="105" height="14" uuid="df67c965-cc30-4f5a-a269-34bd2ec09793"/>
+				<textFieldExpression><![CDATA[$F{segmentsLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="184" y="18" width="70" height="14" uuid="88d225c7-72cc-49fb-8707-4ed5a5597edf"/>
+				<textFieldExpression><![CDATA[$F{txtUnallocatedLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="256" y="18" width="105" height="14" uuid="fad05e8a-8b0c-4ba8-88b7-d355ccb842dd"/>
+				<textFieldExpression><![CDATA[$F{unallocatedLabel}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="4" y="34" width="547" height="10" uuid="c5f9fdce-7847-4fb1-9a35-4bab07aa6f84"/>
+				<subreportParameter name="SR_SEGMENT">
+					<subreportParameterExpression><![CDATA[$P{SR_SEGMENT}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(
+                        (java.util.Collection)$F{sessions}
+                    )]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SR_SESSION}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

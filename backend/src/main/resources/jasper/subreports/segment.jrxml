@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="segment-minimal" pageWidth="547" pageHeight="2000" whenNoDataType="AllSectionsNoDetail" columnWidth="547" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="cbefd4d6-7c12-40c9-99d8-5231443d2629">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Base" fontName="SansSerif" fontSize="9"/>
+	<style name="Muted" style="Base" forecolor="#6C757D"/>
+	<field name="txtStartLabel" class="java.lang.String"/>
+	<field name="startLabel" class="java.lang.String"/>
+	<field name="txtEndLabel" class="java.lang.String"/>
+	<field name="endLabel" class="java.lang.String"/>
+	<field name="txtDurationLabel" class="java.lang.String"/>
+	<field name="durationLabel" class="java.lang.String"/>
+	<field name="txtCategoryLabel" class="java.lang.String"/>
+	<field name="categoryLabel" class="java.lang.String"/>
+	<field name="txtActivityLabel" class="java.lang.String"/>
+	<field name="activityLabel" class="java.lang.String"/>
+	<field name="txtCommentLabel" class="java.lang.String"/>
+	<field name="commentLabel" class="java.lang.String"/>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="547" height="1" uuid="defb9461-0886-42f1-8b3a-eb08f5467f23"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed" lineColor="#6C757D"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Muted" x="0" y="2" width="34" height="12" uuid="57ce39e5-c04b-4900-bc6e-b21230393e6e"/>
+				<textFieldExpression><![CDATA[$F{txtStartLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="36" y="2" width="140" height="12" uuid="94e82aae-4d31-488c-b283-0009ca6ee171"/>
+				<textFieldExpression><![CDATA[$F{startLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="180" y="2" width="34" height="12" uuid="17712c19-8c65-45d8-85b1-3d8e34e3a3fa"/>
+				<textFieldExpression><![CDATA[$F{txtEndLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="216" y="2" width="140" height="12" uuid="2acd9f8f-5d2f-40b4-ae9b-00891af63591"/>
+				<textFieldExpression><![CDATA[$F{endLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="360" y="2" width="70" height="12" uuid="1ee8709e-f9c0-4ba2-b103-aac974d5ab0e"/>
+				<textFieldExpression><![CDATA[$F{txtDurationLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="433" y="2" width="105" height="12" uuid="fbe6cc45-4120-4db1-9d17-72c8390c2bbb"/>
+				<textFieldExpression><![CDATA[$F{durationLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="0" y="14" width="50" height="12" uuid="535219ba-a974-41b9-8b66-6e4b546e0789"/>
+				<textFieldExpression><![CDATA[$F{txtCategoryLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="52" y="14" width="218" height="12" uuid="51375b1d-5e8f-401f-a4d8-2bbaa18641c0"/>
+				<textFieldExpression><![CDATA[$F{categoryLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Muted" x="274" y="14" width="50" height="12" uuid="f6858c25-09a3-4eca-a34c-f3608c46bf60"/>
+				<textFieldExpression><![CDATA[$F{txtActivityLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="326" y="14" width="218" height="12" uuid="658ecd3a-4156-4c90-8416-acec64e56c06"/>
+				<textFieldExpression><![CDATA[$F{activityLabel}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="12" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{commentLabel} != null && !$F{commentLabel}.trim().isEmpty()]]></printWhenExpression>
+			<textField>
+				<reportElement style="Muted" x="0" y="0" width="50" height="12" uuid="61b32788-4072-43a8-a1e5-6ef7db64f260"/>
+				<textFieldExpression><![CDATA[$F{txtCommentLabel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Base" x="52" y="0" width="495" height="12" uuid="2cb4b83b-1565-46c1-9808-ddac22cc6226"/>
+				<textFieldExpression><![CDATA[$F{commentLabel}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

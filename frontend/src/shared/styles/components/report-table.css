@@ -1,0 +1,29 @@
+/* Row type backgrounds (theme-safe via Bootstrap vars) */
+.work-session-row {
+  --bs-table-bg: var(--bs-secondary-bg);
+}
+
+.work-segment-row {
+  --bs-table-bg: var(--bs-tertiary-bg);
+}
+
+/* Make session groups more distinct */
+.work-session-row td {
+  border-top: 2px solid var(--bs-border-color-translucent);
+}
+
+/* Last row of a block (either a session without segments or the last segment row) */
+.group-end td {
+  border-bottom: 2px solid var(--bs-border-color-translucent);
+}
+
+/* Make segments more compact */
+.work-segment-row td {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Needed for text-truncate */
+.seg-line {
+  min-width: 0;
+}

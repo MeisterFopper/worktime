@@ -1,0 +1,28 @@
+[Unit]
+Description=Worktime Backend (Spring Boot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=worktime
+Group=worktime
+WorkingDirectory=/opt/worktime-backend
+EnvironmentFile=/etc/worktime-backend/worktime-backend.env
+
+# Bind to localhost in production (recommended) via application.yml or env overrides.
+ExecStart=/bin/bash -c '/usr/bin/java $JAVA_OPTS -jar /opt/worktime-backend/worktime-backend.jar'
+
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=30
+
+# Hardening (good defaults)
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/worktime-backend
+
+[Install]
+WantedBy=multi-user.target
