@@ -2,10 +2,10 @@ server {
     listen 80;
     server_name _;
 
-    # Gemeinsame Proxy-Header (optional als Snippet)
+    # Shared proxy headers (optional as a snippet)
     # include /etc/nginx/snippets/proxy-headers.conf;
 
-    # ---- Backend: Swagger / OpenAPI zuerst ----
+    # ---- Backend: Swagger / OpenAPI first ----
 
     location = /v3/api-docs {
         proxy_pass http://127.0.0.1:8080/v3/api-docs;
@@ -47,7 +47,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # optional, je nach Setup
+    # Optional, depending on setup
     location ^~ /swagger-resources/ { proxy_pass http://127.0.0.1:8080; }
     location ^~ /webjars/          { proxy_pass http://127.0.0.1:8080; }
 
