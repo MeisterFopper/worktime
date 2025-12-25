@@ -40,14 +40,14 @@ public class WorkSessionController {
     /* ------------------------- ACTIONS ------------------------- */
 
     @PostMapping("/start")
-    @Operation(summary = "Start new work session (server time)")
+    @Operation(summary = "Start new work session")
     public ResponseEntity<WorkSessionResponse> start() {
         WorkSessionResponse started = sessionService.start();
         return ResponseEntity.status(HttpStatus.CREATED).body(started);
     }
 
     @PostMapping("/stop")
-    @Operation(summary = "Stop the currently running work session (server time)")
+    @Operation(summary = "Stop the currently running work session")
     public ResponseEntity<WorkSessionResponse> stop() {
         return ResponseEntity.ok(sessionService.stop());
     }
@@ -55,7 +55,7 @@ public class WorkSessionController {
     /* ------------------------- ADMIN / EDITING ------------------------- */
 
     @PatchMapping("/{workSessionId}")
-    @Operation(summary = "Patch a work session entry (optional admin)")
+    @Operation(summary = "Patch a work session entry")
     public ResponseEntity<WorkSessionResponse> patch(
             @PathVariable Long workSessionId,
             @Valid @RequestBody WorkSessionPatchRequest request
@@ -64,7 +64,7 @@ public class WorkSessionController {
     }
 
     @DeleteMapping("/{workSessionId}")
-    @Operation(summary = "Delete a work session entry (optional admin)")
+    @Operation(summary = "Delete a work session entry")
     public ResponseEntity<Void> delete(@PathVariable Long workSessionId) {
         sessionService.delete(workSessionId);
         return ResponseEntity.noContent().build();

@@ -46,7 +46,12 @@ public final class JasperCompiler {
         final String jrxmlPath = jrxml.toAbsolutePath().toString();
 
         try {
-            // 1) Load (gives better XML/namespace/schema errors)
+            // 1) Output path mirrors input structure
+            Path relative = sourceDir.relativize(jrxml);
+            Path outFile = outputDir.resolve(relative).normalize()
+                .resolveSibling(relative.getFileName().toString().replace(".jrxml", ".jasper"));
+
+            // 2) Load (gives better XML/namespace/schema errors)
             try {
                 validateXmlWellFormed(jrxml);
                 JasperDesign design = JRXmlLoader.load(jrxmlPath);
@@ -54,15 +59,10 @@ public final class JasperCompiler {
                     throw new IllegalStateException("JRXmlLoader returned null design");
                 }
             } catch (Exception e) {
-                System.err.println("[JasperCompiler] JRXML load failed (XML/schema): " + jrxmlPath);
+                System.err.println("[JasperCompiler] JRXML load failed (XML/schema): " + relative);
                 throw e;
             }
-            System.out.println("[JasperCompiler] Well formed: " + jrxmlPath);
-
-            // 2) Output path mirrors input structure
-            Path relative = sourceDir.relativize(jrxml);
-            Path outFile = outputDir.resolve(relative).normalize()
-                .resolveSibling(relative.getFileName().toString().replace(".jrxml", ".jasper"));
+            System.out.println("[JasperCompiler] Well formed: " + relative);
 
             Files.createDirectories(outFile.getParent());
 

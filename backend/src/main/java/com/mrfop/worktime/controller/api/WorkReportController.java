@@ -25,7 +25,7 @@ public class WorkReportController {
     private final WorkReportExportService exportService;
 
     @GetMapping("/days")
-    @Operation(summary = "Get work sessions grouped by day including segments (UTC only)")
+    @Operation(summary = "Get work sessions grouped by day including segments")
     public ResponseEntity<List<WorkDayResponse>> getDays(@Valid @ModelAttribute WorkReportDaysRequest req) {
         return ResponseEntity.ok(reportService.daysWithSegments(req));
     }

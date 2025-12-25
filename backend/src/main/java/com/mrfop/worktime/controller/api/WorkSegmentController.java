@@ -43,14 +43,14 @@ public class WorkSegmentController {
     /* ------------------------- ACTIONS ------------------------- */
 
     @PostMapping("/start")
-    @Operation(summary = "Start a new work segment (server time)")
+    @Operation(summary = "Start a new work segment")
     public ResponseEntity<WorkSegmentResponse> start(@Valid @RequestBody WorkSegmentStartRequest request) {
         WorkSegmentResponse created = segmentService.start(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PostMapping("/stop")
-    @Operation(summary = "Stop the currently running work segment (server time)")
+    @Operation(summary = "Stop the currently running work segment")
     public ResponseEntity<WorkSegmentResponse> stop(@Valid @RequestBody WorkSegmentStopRequest request) {
         return ResponseEntity.ok(segmentService.stop(request));
     }
@@ -58,7 +58,7 @@ public class WorkSegmentController {
     /* ------------------------- ADMIN / EDITING ------------------------- */
 
     @PatchMapping("/{workSegmentId}")
-    @Operation(summary = "Patch a work segment entry (optional admin)")
+    @Operation(summary = "Patch a work segment entry")
     public ResponseEntity<WorkSegmentResponse> patch(
             @PathVariable Long workSegmentId,
             @Valid @RequestBody WorkSegmentPatchRequest request
@@ -67,7 +67,7 @@ public class WorkSegmentController {
     }
 
     @DeleteMapping("/{workSegmentId}")
-    @Operation(summary = "Delete a work segment entry (optional admin)")
+    @Operation(summary = "Delete a work segment entry")
     public ResponseEntity<Void> delete(@PathVariable Long workSegmentId) {
         segmentService.delete(workSegmentId);
         return ResponseEntity.noContent().build();
